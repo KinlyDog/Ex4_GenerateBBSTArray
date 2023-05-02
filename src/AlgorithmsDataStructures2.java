@@ -9,15 +9,15 @@ public class AlgorithmsDataStructures2 {
         return result;
     }
 
-    private static void GenerateBBSTArrayRec(int[] sort, int start, int end, int[] result, int i) {
-        if (start > end) {
+    private static void GenerateBBSTArrayRec(int[] sort, int startIndex, int endIndex, int[] result, int i) {
+        if (startIndex > endIndex) {
             return;
         }
 
-        int mid = (start + end) / 2;
+        int mid = startIndex + (endIndex - startIndex) / 2;
         result[i] = sort[mid];
 
-        GenerateBBSTArrayRec(sort, start, mid - 1, result, 2 * i + 1);
-        GenerateBBSTArrayRec(sort, mid + 1, end, result, 2 * i + 2);
+        GenerateBBSTArrayRec(sort, startIndex, mid - 1, result, 2 * i + 1);
+        GenerateBBSTArrayRec(sort, mid + 1, endIndex, result, 2 * i + 2);
     }
 }
